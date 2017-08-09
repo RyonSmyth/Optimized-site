@@ -516,8 +516,8 @@ window.addEventListener('scroll', updatePositions);
 
 // Calculates number of pizzas that should be generated based of screen height
 function pizzaNumber() {
-  var number = (window.innerHeight / 10)
-  return number
+  var number = (window.innerHeight / 10);
+  return number;
 }
 
 // Generates the sliding pizzas when the page loads.
