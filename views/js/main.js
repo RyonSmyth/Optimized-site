@@ -426,7 +426,7 @@ var resizePizzas = function(size) {
     function sizeSwitcher (size) {
       switch(size) {
         case "1":
-          return "25";
+          return "25%";
         case "2":
           return "33.3%";
         case "3":
@@ -493,10 +493,11 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var phase = Math.sin((document.body.scrollTop / 1250));
+  var scrollTop = document.body.scrollTop;
 
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -513,11 +514,17 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+// Calculates number of pizzas that should be generated based of screen height
+function pizzaNumber() {
+  var number = (window.innerHeight / 10)
+  return number
+}
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < pizzaNumber(); i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";

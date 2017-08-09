@@ -26,6 +26,8 @@ To use this app:
 
 1) Simplified the `sizeSwitcher` and `changePizzaSizes` functions
 
-2) Defined the `phase` variable outside of the `for` loop
+2) Assigned `document.body.scrollTop` to a variable instead of calling it directly from inside a `for` loop
 
 3) Added the `will-change: transform` property to the `mover` class
+
+4) Made it so that numbber of sliding pizza images generated changes depending on screen height 
